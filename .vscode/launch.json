@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug (OpenOCD + ST-LINK)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "debug/openocd-connect.cfg",
+        "target/stm32f4x.cfg"
+      ],
+      "executable": "${workspaceFolder}/output/lab1.elf",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      // Place the SVD at debug/STM32F412.svd to inspect peripheral registers
+      // (RCC, GPIO...) in real time during debugging.
+      "svdFile": "${workspaceFolder}/debug/STM32F412.svd"
+    }
+  ]
+}
